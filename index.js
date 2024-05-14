@@ -1,13 +1,4 @@
 document.addEventListener("DOMContentLoaded", function() {
-    let counter = localStorage.getItem("wishCounter") || 0;
-    document.getElementById("counter").innerText = counter;
-
-    document.getElementById("wishButton").addEventListener("click", function() {
-        counter++;
-        localStorage.setItem("wishCounter", counter);
-        document.getElementById("counter").innerText = counter;
-    });
-
     // Confetti
     const confettiContainer = document.querySelector(".confetti");
     for (let i = 0; i < 100; i++) {
@@ -24,3 +15,15 @@ document.addEventListener("DOMContentLoaded", function() {
         return colors[Math.floor(Math.random() * colors.length)];
     }
 });
+
+function checkPassword() {
+    const passwordInput = document.getElementById('password-input').value;
+    const correctPassword = "yourPassword"; // Change this to your desired password
+
+    if (passwordInput === correctPassword) {
+        document.getElementById('password-container').classList.add('hidden');
+        document.getElementById('content-container').classList.remove('hidden');
+    } else {
+        document.getElementById('error-message').innerText = 'Incorrect password. Please try again.';
+    }
+}
